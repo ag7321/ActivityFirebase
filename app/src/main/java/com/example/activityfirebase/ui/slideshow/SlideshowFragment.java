@@ -4,32 +4,49 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.example.activityfirebase.Models.ModelCounter;
+import com.example.activityfirebase.R;
 import com.example.activityfirebase.databinding.FragmentSlideshowBinding;
 
-public class SlideshowFragment extends Fragment {
+public class SlideshowFragment extends Fragment implements View.OnClickListener{
 
-private FragmentSlideshowBinding binding;
-
+    private ModelCounter contador;
+    private Button btn1,btn2,btn3,btn4;
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
 
-    binding = FragmentSlideshowBinding.inflate(inflater, container, false);
-    View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        View root = inflater.inflate(R.layout.fragment_home,container,false);
+        contador = new ModelCounter();
+
+        btn1 = root.findViewById(R.id.btn1);
+        btn2 = root.findViewById(R.id.btn2);
+        btn3 = root.findViewById(R.id.btn3);
+        btn4 = root.findViewById(R.id.btn4);
+
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
+
+
         return root;
     }
 
-@Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn1:
+                contador.setValForIndex(0);
+                break;
+        }
+
     }
 }

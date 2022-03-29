@@ -48,7 +48,7 @@ private FragmentHomeBinding binding;
 
             preferences = new Preferences();
             preferences.loadProferences(getContext());
-
+            cargarInfo();
         return root;
     }
 
