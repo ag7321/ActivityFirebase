@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.activityfirebase" >
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,12 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ActivityFirebase" >
         <activity
-            android:name=".MainActivity"
+            android:name=".NavActivity"
             android:exported="false"
 
             />
         <activity
-            android:name=".NavActivity"
+            android:name=".MainActivity"
             android:theme="@style/Theme.ActivityFirebase.NoActionBar"
             android:exported="true" >
             <intent-filter>

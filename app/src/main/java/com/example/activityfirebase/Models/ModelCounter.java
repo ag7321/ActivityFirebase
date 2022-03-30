@@ -9,13 +9,11 @@ public class ModelCounter extends Observable{
 
 
     public ModelCounter() {
-        lista = new ArrayList<Integer>(5);
+        lista = new ArrayList<Integer>(4);
         lista.add(0);
         lista.add(0);
         lista.add(0);
         lista.add(0);
-        lista.add(0);
-
     }
 
     public int obtenerValForIndex(final int indice){
